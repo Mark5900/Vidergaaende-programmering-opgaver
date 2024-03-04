@@ -16,9 +16,13 @@ namespace Navneliste
     /// </summary>
     public partial class MainWindow : Window
     {
+        string[] names = { "FC København", "Brøndby IF", "AGF", "FC Midtjylland", "OB", "AaB", "Randers FC", "SønderjyskE", "Vejle BK", "Lyngby BK" };
+
         public MainWindow()
         {
             InitializeComponent();
+            Array.Sort(names);
+            lstNames.ItemsSource = names;
         }
 
         private void btnRemovePosition_Click(object sender, RoutedEventArgs e)
