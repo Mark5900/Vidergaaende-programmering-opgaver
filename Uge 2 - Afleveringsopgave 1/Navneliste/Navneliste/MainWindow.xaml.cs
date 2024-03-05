@@ -28,6 +28,8 @@ namespace Navneliste
             {
                 UseTestData();
             }
+
+            lstNames.Items.SortDescriptions.Add(new SortDescription("", ListSortDirection.Ascending));
         }
 
         private void btnRemovePosition_Click(object sender, RoutedEventArgs e)
@@ -87,7 +89,8 @@ namespace Navneliste
 
         private void btnRemoveSelectedName_Click(object sender, RoutedEventArgs e)
         {
-
+            lNames.Remove(lstNames.SelectedItem.ToString());
+            SetListBoxItems();
         }
 
         private void UseTestData()
@@ -105,7 +108,6 @@ namespace Navneliste
 
         private void SetListBoxItems()
         {
-            lNames.Sort();
             lstNames.ItemsSource = null;
             lstNames.ItemsSource = lNames;
         }
