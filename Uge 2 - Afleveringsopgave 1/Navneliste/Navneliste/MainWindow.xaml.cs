@@ -40,12 +40,17 @@ namespace Navneliste
             } else if (string.IsNullOrWhiteSpace(txtPosition.Text))
             {
                 MessageBox.Show("Indtast venligst en position");
+            } else if (!int.TryParse(txtPosition.Text, out _))
+            {
+                MessageBox.Show("Positionen skal være et tal");
             } else
             {
                 int iPosition = int.Parse(txtPosition.Text.Trim());
                 if (iPosition >= 0 && iPosition <= lNames.Count - 1)
                 {
-                    lNames.RemoveAt(iPosition);
+                    string sName = lstNames.Items[iPosition].ToString();
+                    lNames.Remove(sName);
+
                     SetListBoxItems();
                 } else
                 {
@@ -89,14 +94,24 @@ namespace Navneliste
 
         private void btnRemoveSelectedName_Click(object sender, RoutedEventArgs e)
         {
-            lNames.Remove(lstNames.SelectedItem.ToString());
-            SetListBoxItems();
+            try
+            {
+                if (lstNames.SelectedItem != null)
+                {
+                    lNames.Remove(lstNames.SelectedItem.ToString());
+
+                    SetListBoxItems();
+                }
+            }
+            catch (Exception)
+            {
+                // Do nothing if no item is selected
+            }
         }
 
         private void UseTestData()
         {
             string[] aNames = { "FC København", "Brøndby IF", "AGF", "FC Midtjylland", "OB", "AaB", "Randers FC", "SønderjyskE", "Vejle BK", "Lyngby BK" };
-            Array.Sort(aNames);
 
             foreach (string aName in aNames)
             {
