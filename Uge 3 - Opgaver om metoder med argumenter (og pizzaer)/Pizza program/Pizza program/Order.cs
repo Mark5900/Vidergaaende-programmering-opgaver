@@ -10,5 +10,6 @@ namespace Pizza_program
     {
         public string PizzaType { get; set; }
         public int Number { get; set; }
+        public List<string> Ingredients { get; set; }
     }
 }
