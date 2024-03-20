@@ -16,4 +16,15 @@ while (true)
     double procent = double.Parse(Console.ReadLine());
 
     listBeers.Add(new Beer(name, size, prize, procent));
+
+    Console.WriteLine("Do you want to add another beer? (yes/no)");
+    string answer = Console.ReadLine();
+    if (answer == "no")
+    {
+        foreach (var beer in listBeers)
+        {
+            Console.WriteLine(beer.ToString());
+        }
+        break;
+    }
 }

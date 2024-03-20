@@ -14,7 +14,7 @@ namespace Opret_en_simpel_klasse
         private bool Alcohol;
         private double Procent;
 
-        public Beer(string name, int size, int prize, double alcoholProcent)
+        public Beer(string name, int size, int prize, double alcoholProcent = 1)
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentException("Name is null or empty");
