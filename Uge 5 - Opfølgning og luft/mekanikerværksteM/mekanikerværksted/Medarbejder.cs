@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace mekanikerværksted
 {
-    internal abstract class Medarbejder
+    internal abstract class Medarbejder : IharAdresse
     {
         private string _navn;
-        private string _adresse;
+        private Adresse _adresse;
         private const int _timerPrUge = 37;
         private CprNr _cprNr;
         private string _medarbejderNr;
 
-        public Medarbejder(string navn, string adresse, CprNr cprNr, string medarbejderNr)
+        public Medarbejder(string navn, Adresse adresse, CprNr cprNr, string medarbejderNr)
         {
             _navn = navn;
             _adresse = adresse;
@@ -28,7 +28,7 @@ namespace mekanikerværksted
             set { _navn = value; }
         }
 
-        public string Adresse
+        public Adresse Adresse
         {
             get { return _adresse; }
             set { _adresse = value; }

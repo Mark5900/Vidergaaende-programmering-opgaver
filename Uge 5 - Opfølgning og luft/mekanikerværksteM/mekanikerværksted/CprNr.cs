@@ -8,30 +8,27 @@ namespace mekanikerværksted
 {
     internal class CprNr
     {
-        private string _birthDate;
-        private string _sequenceNumber;
-
-        public CprNr(string bDate, string sNumber)
+        public CprNr(string birthDate, string sequenceNumber)
         {
-            BirthDate = bDate;
-            SequenceNumber = sNumber;
+            BirthDate = birthDate;
+            SequenceNumber = sequenceNumber;
         }
 
-        public string BirthDate
-        {
-            get { return _birthDate; }
-            set { _birthDate = value; }
-        }
+        public string BirthDate { get; set; }
+        public string SequenceNumber { get; set; }
 
-        public string SequenceNumber
+        public override bool Equals(object obj)
         {
-            get { return _sequenceNumber; }
-            set { _sequenceNumber = value; }
+            if (!(obj is CprNr))
+            {
+                return false;
+            }
+            CprNr obj1 = (CprNr)obj;
+            return BirthDate.Equals(obj1.BirthDate) && SequenceNumber.Equals(obj1.SequenceNumber);
         }
-
-        public override string ToString()
+        public override int GetHashCode()
         {
-            return _birthDate + "-" + _sequenceNumber;
+            return BirthDate.GetHashCode() + SequenceNumber.GetHashCode();
         }
     }
 }

@@ -10,9 +10,9 @@ namespace mekanikerværksted
     {
         private int _synsAntal;
 
-        public Synsmand(string navn, string adresse, int svendeproeveAar, int syns, CprNr cprNr, string medarbejderNr) : base(navn, adresse, svendeproeveAar, 0, cprNr, medarbejderNr)
+        public Synsmand(string navn, Adresse adresse, CprNr cprNr, string medarbejderNr, DateTime svendeproeveAar, double timeloen, int synsAntal) : base(navn, adresse, cprNr, medarbejderNr, svendeproeveAar, timeloen)
         {
-            _synsAntal = syns;
+            _synsAntal = synsAntal;
         }
 
         public int SynsAntal

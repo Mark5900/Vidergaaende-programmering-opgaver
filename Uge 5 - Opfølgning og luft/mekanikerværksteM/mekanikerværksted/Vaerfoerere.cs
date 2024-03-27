@@ -11,7 +11,7 @@ namespace mekanikerværksted
         private int _udnaevnelsesAar;
         private double _tillaeg;
 
-        public Vaerfoerere(string navn, string adresse, int svendeproeveAar, int timeloen, int udnaevnelsesAar, int tillaeg, CprNr cprNr, string medarbejderNr) : base(navn, adresse, svendeproeveAar, timeloen, cprNr, medarbejderNr)
+        public Vaerfoerere(string navn, Adresse adresse, CprNr cprNr, string medarbejderNr, DateTime svendeproeveAar, double timeloen, int udnaevnelsesAar, double tillaeg) : base(navn, adresse, cprNr, medarbejderNr, svendeproeveAar, timeloen)
         {
             _udnaevnelsesAar = udnaevnelsesAar;
             _tillaeg = tillaeg;

@@ -8,16 +8,16 @@ namespace mekanikerværksted
 {
     internal class Mekanikere : Medarbejder
     {
-        private int _svendeproeveAar;
+        private DateTime _svendeproeveAar;
         private double _timeloen;
 
-        public Mekanikere(string navn, string adresse, int svendeproeveAar, double timeloen, CprNr cprNr, string medarbejderNr) : base(navn, adresse, cprNr, medarbejderNr)
+        public Mekanikere(string navn, Adresse adresse, CprNr cprNr, string medarbejderNr, DateTime svendeproeveAar, double timeloen) : base(navn, adresse, cprNr, medarbejderNr)
         {
             _svendeproeveAar = svendeproeveAar;
             _timeloen = timeloen;
         }
 
-        public int SvendeproeveAar
+        public DateTime SvendeproeveAar
         {
             get { return _svendeproeveAar; }
             set { _svendeproeveAar = value; }
